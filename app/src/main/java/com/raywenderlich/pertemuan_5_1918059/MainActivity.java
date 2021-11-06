@@ -18,24 +18,22 @@ import java.text.DateFormat;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
-    private TextView mTextView;
+    protected TextView mTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mTextView = findViewById(R.id.TextView);
-//memunculkan dialog timepicker menggunakan library dari android
-        Button buttonTimePicker = (Button)
-                findViewById(R.id.button_time_picker);
+        //memunculkan dialog timepicker menggunakan library dari android
+        Button buttonTimePicker = (Button)findViewById(R.id.button_time_picker);
         buttonTimePicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogFragment timePicker = new
-                        TimePickerFragment();
+                DialogFragment timePicker = new TimePickerFragment();
                 timePicker.show(getSupportFragmentManager(),"Time Picker");
             }
         });
-//untuk menggagalkan alarm yang sudah disetel
+        //untuk menggagalkan alarm yang sudah disetel
         Button buttonCancelAlarm = findViewById(R.id.button_cancel);
         buttonCancelAlarm.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -54,12 +52,15 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
         updateTimeText(c);
         startAlarm(c);
     }
+
     //mengganti text view
     private void updateTimeText(Calendar c){
         String timeText = "Alarm set for: ";
-        timeText += DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime());
+        String ready = "\nGet Ready!: ";
+        timeText += DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime())+ready;
         mTextView.setText(timeText);
     }
+
     //memulai alarm
     private void startAlarm(Calendar c){
         AlarmManager alarmManager = (AlarmManager)
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
         }
         alarmManager.setExact(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),pendingIntent);
     }
+
     //menggagalkan alarm
     private void cancelAlarm(){
         AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);

@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.os.Build;
+import android.widget.TextView;
 
 import androidx.core.app.NotificationCompat;
 
@@ -26,11 +27,11 @@ public class NotificationHelper extends ContextWrapper {
         NotificationChannel channel = new NotificationChannel(
                 channelID,
                 channelName,
-//tingkat importance = high ( penting sekali )
+                //tingkat importance = high ( penting sekali )
                 NotificationManager.IMPORTANCE_HIGH
         );
         getManager().createNotificationChannel(channel);}
-//membuka izin pengaturan dari aplikasi untuk memulai service notifikasi
+    //membuka izin pengaturan dari aplikasi untuk memulai service notifikasi
     public NotificationManager getManager() {
         if (mManager == null) {
             mManager = (NotificationManager)
@@ -43,7 +44,7 @@ public class NotificationHelper extends ContextWrapper {
         return new
                 NotificationCompat.Builder(getApplicationContext(), channelID)
                 .setContentTitle("Alarm!")
-                .setContentText("Bangun Woi ")
-                .setSmallIcon(R.drawable.ic_android_black_24dp);
+                .setContentText("It's time to dddduel")
+                .setSmallIcon(R.drawable.yugioh);
     }
 }

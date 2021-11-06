@@ -6,27 +6,74 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <TextView
-        android:id="@+id/TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="No Alarm Set"
-        android:textSize="30sp"
-        android:layout_above="@+id/button_time_picker"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="31dp"/>
-    <Button
-        android:id="@+id/button_time_picker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Open Time Picker"
-        android:layout_centerInParent="true"/>
-    <Button
-        android:id="@+id/button_cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cancel Alarm"
-        android:layout_below="@id/button_time_picker"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:src="@drawable/yugioh"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:src="@drawable/redback"
+                app:layout_constraintBottom_toTopOf="@+id/button_time_picker"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                app:layout_constraintVertical_bias="0.16" />
+
+            <TextView
+                android:id="@+id/TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/button_time_picker"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="84dp"
+                android:text="No Duelling Alarm is Set"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <Button
+                android:id="@+id/button_time_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="196dp"
+                android:text="Open Time Picker"
+                app:backgroundTint="@color/red"
+                app:layout_constraintEnd_toEndOf="@+id/TextView"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="@+id/TextView"
+                app:layout_constraintTop_toBottomOf="@+id/TextView" />
+
+            <Button
+                android:id="@+id/button_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/button_time_picker"
+                android:layout_centerHorizontal="true"
+                android:text="Cancel Alarm"
+                app:backgroundTint="@color/red"
+                app:layout_constraintEnd_toEndOf="@+id/button_time_picker"
+                app:layout_constraintStart_toStartOf="@+id/button_time_picker"
+                app:layout_constraintTop_toBottomOf="@+id/button_time_picker" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </RelativeLayout>
